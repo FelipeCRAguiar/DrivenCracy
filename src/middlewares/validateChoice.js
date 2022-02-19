@@ -1,6 +1,6 @@
 import choiceSchema from "../schemas/choiceSchema.js"
 
-export default function validatePoll(req, res, next) {
+export default function validateChoice(req, res, next) {
     const validation = choiceSchema.validate(req.body)
 
     if (validation.error) {
