@@ -11,6 +11,14 @@ export async function postChoice(req, res) {
         if(!poll) {
             res.sendStatus(404)
         }
+
+        const choiceList = await db.collection('choices').find({pollId: choice.pollId}).toArray()
+
+        for (let i = 0; i < choiceList.length; i++) {
+            if (choiceList[i].title === choice.title) {
+                res.sendStatus(409)
+            }
+        }
         
         await db.collection('choices').insertOne(choice)
 
