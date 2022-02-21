@@ -1,4 +1,4 @@
-import db from '../db.js'
+import db from '../../db.js'
 import dayjs from 'dayjs'
 
 export async function postPoll(req, res) {
