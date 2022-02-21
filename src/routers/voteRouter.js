@@ -4,6 +4,6 @@ import { getVotes, postVote } from "../controllers/voteController.js";
 const voteRouter = express.Router()
 
 voteRouter.post('/choice/:id/vote', postVote)
-voteRouter.get('/poll/:id/result', getVotes)
+voteRouter.get('/pool/:id/result', getVotes)
 
 export default voteRouter

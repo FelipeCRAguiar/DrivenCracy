@@ -5,6 +5,6 @@ import { postChoice, getChoices } from "../controllers/choiceController.js";
 const choiceRouter = express.Router()
 
 choiceRouter.post('/choice', validateChoice, postChoice)
-choiceRouter.get('/poll/:id/choice', getChoices)
+choiceRouter.get('/pool/:id/choice', getChoices)
 
 export default choiceRouter

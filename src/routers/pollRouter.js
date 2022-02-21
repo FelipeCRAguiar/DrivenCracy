@@ -4,8 +4,8 @@ import { postPoll, getPoll } from '../controllers/pollController.js'
 
 const pollRouter = express.Router()
 
-pollRouter.post('/poll', validatePoll, postPoll)
-pollRouter.get('/poll', getPoll)
+pollRouter.post('/pool', validatePoll, postPoll)
+pollRouter.get('/pool', getPoll)
 
 
 export default pollRouter

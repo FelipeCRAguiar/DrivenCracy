@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 import db from '../db.js';
+import dayjs from 'dayjs';
 
 export async function postChoice(req, res) {
     const choice = req.body
@@ -10,6 +11,12 @@ export async function postChoice(req, res) {
 
         if(!poll) {
             res.sendStatus(404)
+            return
+        }
+
+        if(poll.expireAt.isBefore(dayjs())) {
+            res.sendStatus(403)
+            return
         }
 
         const choiceList = await db.collection('choices').find({pollId: choice.pollId}).toArray()
@@ -17,6 +24,7 @@ export async function postChoice(req, res) {
         for (let i = 0; i < choiceList.length; i++) {
             if (choiceList[i].title === choice.title) {
                 res.sendStatus(409)
+                return
             }
         }
         
@@ -38,6 +46,7 @@ export async function getChoices(req, res) {
 
         if(!choices) {
             res.sendStatus(404)
+            return
         }
 
         res.send(choices).status(201)

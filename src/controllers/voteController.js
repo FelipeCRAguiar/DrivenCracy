@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb'
 import db from '../db.js'
+import dayjs from 'dayjs'
 
 export async function postVote(req, res) {
     const choiceId = id.params
@@ -10,6 +11,14 @@ export async function postVote(req, res) {
 
         if(!choice) {
             res.sendStatus(404)
+            return
+        }
+
+        const poll = await db.collection('polls').findOne({_id: new ObjectId(choice.pollId)})
+
+        if(poll.expireAt.isBefore(dayjs())) {
+            res.sendStatus(403)
+            return
         }
 
         const result = await db.collection('results').findOne({ choiceId: new ObjectId(choiceId)})
@@ -42,6 +51,7 @@ export async function getVotes(req, res) {
 
         if(!poll) {
             res.sendStatus(404)
+            return
         }
         
         const resultList = await db.collection('results').find({ pollId: pollId}).toArray()
