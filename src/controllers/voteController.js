@@ -3,7 +3,7 @@ import db from '../../db.js'
 import dayjs from 'dayjs'
 
 export async function postVote(req, res) {
-    const choiceId = id.params
+    const choiceId = req.params.id
 
     try {
         
