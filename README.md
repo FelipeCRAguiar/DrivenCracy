@@ -1,22 +1,21 @@
 # DrivenCracy
 
-An app that let you create and order shirts or order a shirt made by another user <br><br>
-Try it out on https://felipecraguiar.github.io/FashionDriven/
+Backend code for a poll creation website
 
 ## About
 
-You can use this app to make and order a shirt that fits your tastes, or order a shirt that someone else made that is to your liking:
+This is the backend code thst has the following functions:
 
- - Select the shirt model
- - Select the shit collar type
- - Select the material you want your shirt made out of
- - Provide a reference image
- - Order the created shirt
- - Or order a shirt made by other users
+ - Create and post a new poll to the database
+ - Get all polls from the database
+ - Post new vote options for a created poll 
+ - Get the options for a poll
+ - Post your vote
+ - Get the most voted option with the amount of votes
 
 ## Technologies
 
-![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![css](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![node js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![mongodb](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## How to run
 
