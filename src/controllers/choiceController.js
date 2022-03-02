@@ -14,7 +14,7 @@ export async function postChoice(req, res) {
             return
         }
 
-        if(poll.expireAt.isBefore(dayjs())) {
+        if(dayjs(poll.expireAt).isBefore(dayjs())) {
             res.sendStatus(403)
             return
         }
@@ -42,7 +42,7 @@ export async function getChoices(req, res) {
 
     try {
         
-        const choices = await db.collection('choices').find({_id: new ObjectId(id)}).toArray
+        const choices = await db.collection('choices').find({_id: new ObjectId(id)}).toArray()
 
         if(!choices) {
             res.sendStatus(404)

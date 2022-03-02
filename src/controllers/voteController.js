@@ -16,7 +16,7 @@ export async function postVote(req, res) {
 
         const poll = await db.collection('polls').findOne({_id: new ObjectId(choice.pollId)})
 
-        if(poll.expireAt.isBefore(dayjs())) {
+        if(dayjs(poll.expireAt).isBefore(dayjs())) {
             res.sendStatus(403)
             return
         }
@@ -43,7 +43,7 @@ export async function postVote(req, res) {
 }
 
 export async function getVotes(req, res) {
-    const pollId = id.params
+    const pollId = req.params.id
 
     try {
         

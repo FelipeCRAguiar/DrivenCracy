@@ -10,7 +10,7 @@ export async function postPoll(req, res) {
         poll.expireAt = expire
     }
 
-    if(poll.expireAt.isBefore(dayjs())) {
+    if(dayjs(poll.expireAt).isBefore(dayjs())) {
         res.sendStatus(403)
         return
     }
