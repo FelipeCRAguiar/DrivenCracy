@@ -17,9 +17,13 @@ This is the backend code thst has the following functions:
 
 ![node js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![mongodb](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## How to run
+## How to run localy
 
 1. Clone this repository
 2. Open it in your preferred coding platform
-3. Run it with the Live Server extension or similar
-4. Enjoy 🙂
+3. Run the npm i command to install dependencies
+4. Create a .env file
+5. Run de mongodb command "mongod --dbpath ~/.mongo" in a separate terminal
+6. Run node app.js to start the server locally
+7. Use thunderclient or similar to tryout the paths
+8. Enjoy 🙂
